@@ -39,12 +39,15 @@ public class UserRequest {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class PhoneRequest {
+        @Schema(description = "Número de celular del usuario", example = "123456789", required = true)
         @NotBlank(message = "El número es obligatorio")
         private String number;
 
+        @Schema(description = "Código de ciudad", example = "11", required = true)
         @NotBlank(message = "El código de ciudad es obligatorio")
         private String cityCode;
 
+        @Schema(description = "Código de país", example = "57", required = true)
         @NotBlank(message = "El código de país es obligatorio")
         private String countryCode;
     }
