@@ -17,18 +17,25 @@ public class UserMapper {
             return null;
         }
 
-        return UserEntity.builder()
+        UserEntity userEntity = UserEntity.builder()
                 .id(user.getId())
                 .name(user.getName())
                 .email(user.getEmail())
                 .password(user.getPassword())
-                .phones(mapPhonesToEntities(user.getPhones()))
                 .created(user.getCreated())
                 .modified(user.getModified())
                 .lastLogin(user.getLastLogin())
                 .token(user.getToken())
                 .active(user.isActive())
                 .build();
+
+        // Mapear teléfonos y establecer la relación bidireccional
+        if (user.getPhones() != null) {
+            List<PhoneEntity> phoneEntities = mapPhonesToEntities(user.getPhones(), userEntity);
+            userEntity.setPhones(phoneEntities);
+        }
+
+        return userEntity;
     }
 
     public User toDomain(UserEntity entity) {
@@ -50,21 +57,22 @@ public class UserMapper {
                 .build();
     }
 
-    private List<PhoneEntity> mapPhonesToEntities(List<Phone> phones) {
+    private List<PhoneEntity> mapPhonesToEntities(List<Phone> phones, UserEntity userEntity) {
         if (phones == null) {
             return null;
         }
 
         return phones.stream()
-                .map(this::mapPhoneToEntity)
+                .map(phone -> mapPhoneToEntity(phone, userEntity))
                 .collect(Collectors.toList());
     }
 
-    private PhoneEntity mapPhoneToEntity(Phone phone) {
+    private PhoneEntity mapPhoneToEntity(Phone phone, UserEntity userEntity) {
         return PhoneEntity.builder()
                 .number(phone.getNumber())
                 .cityCode(phone.getCityCode())
                 .countryCode(phone.getCountryCode())
+                .user(userEntity)
                 .build();
     }
 
