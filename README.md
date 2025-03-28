@@ -3,9 +3,8 @@
 API RESTful para registro de usuarios desarrollada en **Spring Boot 3**, **Java 17** y base de datos **H2**.  
 
 ## Características  
-✔ **Registro de usuarios** con validación de email y contraseña.  
+✔ **Registro de usuarios** con validación de formato de email y contraseña.  
 ✔ **Generación automática de UUID, fechas**.  
-✔ **Validación de formato de email y contraseña** (configurable).  
 ✔ **Manejo de errores** con respuestas JSON estandarizadas.  
 ✔ **Swagger UI** para documentación interactiva de la API.  
 ✔ **Tests unitarios** con JUnit 5 y Mockito.
@@ -24,14 +23,14 @@ Acceder: `https://www.mermaidchart.com/raw/391cc297-723e-4e47-a600-54ce6ae83130?
 
 1. Clonar el repositorio
 
-	git clone `https://github.com/avergarayb/user-registration-api.git`
-	cd user-registration-api
+	- git clone `https://github.com/avergarayb/user-registration-api.git`
+	- `cd user-registration-api`
 
 2. Ejecutar: 
-	`mvn clean install`
-	`mvn spring-boot:run`
+	- `mvn clean install`
+	- `mvn spring-boot:run`
 	
-3. La aplicación estará disponible en `http://localhost:8080`
+3. La aplicación estará disponible en: `http://localhost:8080`
 
 ## Acceso consola H2
 
