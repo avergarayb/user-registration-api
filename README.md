@@ -9,9 +9,14 @@ API RESTful para registro de usuarios desarrollada en **Spring Boot 3**, **Java 
 ✔ **Swagger UI** para documentación interactiva de la API.  
 ✔ **Tests unitarios** con JUnit 5 y Mockito.
 
-## Diagrama de la solución
+## Diagramas
 
-Acceder: `https://www.mermaidchart.com/raw/391cc297-723e-4e47-a600-54ce6ae83130?theme=light&version=v0.1&format=svg`
+Acceder:
+  Diagrama de la solución
+- https://www.mermaidchart.com/raw/ecb31561-cde8-46ca-bb15-5e4e160e83fb?theme=light&version=v0.1&format=svg
+
+  Diagrama de componentes
+- https://www.mermaidchart.com/raw/391cc297-723e-4e47-a600-54ce6ae83130?theme=light&version=v0.1&format=svg
 
 ## Requisitos
 
