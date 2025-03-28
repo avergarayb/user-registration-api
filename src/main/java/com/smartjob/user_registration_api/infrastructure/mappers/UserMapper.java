@@ -12,6 +12,11 @@ import java.util.stream.Collectors;
 @Component
 public class UserMapper {
 
+    /**
+     * Mapea un objeto User del dominio a un objeto UserEntity de la base de datos.
+     * @param user objeto que representa al usuario en el dominio
+     * @return UserEntity objeto que representa al usuario en la base de datos
+     */
     public UserEntity toEntity(User user) {
         if (user == null) {
             return null;
@@ -38,6 +43,11 @@ public class UserMapper {
         return userEntity;
     }
 
+    /**
+     * Convierte un objeto UserEntity de la base de datos a un objeto User del dominio.
+     * @param entity objeto que representa al usuario en la base de datos
+     * @return User objeto que representa al usuario en el dominio
+     */
     public User toDomain(UserEntity entity) {
         if (entity == null) {
             return null;

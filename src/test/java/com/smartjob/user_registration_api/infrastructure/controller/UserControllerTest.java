@@ -1,10 +1,9 @@
 package com.smartjob.user_registration_api.infrastructure.controller;
 
-import com.smartjob.user_registration_api.application.dto.ErrorResponse;
 import com.smartjob.user_registration_api.application.dto.UserRequest;
 import com.smartjob.user_registration_api.application.dto.UserResponse;
 import com.smartjob.user_registration_api.domain.exceptions.UserAlreadyExistsException;
-import com.smartjob.user_registration_api.domain.service.UserService;
+import com.smartjob.user_registration_api.domain.services.UserService;
 import com.smartjob.user_registration_api.infrastructure.controllers.UserController;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

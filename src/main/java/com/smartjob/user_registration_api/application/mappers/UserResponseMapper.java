@@ -11,6 +11,11 @@ import java.util.stream.Collectors;
 @Component
 public class UserResponseMapper {
 
+    /**
+     * Mapeaa un objeto User a un objeto UserResponse.
+     * @param user objeto User que se va a convertir
+     * @return UserResponse objeto que representa la respuesta del usuario
+     */
     public UserResponse toResponse(User user) {
         if (user == null) {
             return null;

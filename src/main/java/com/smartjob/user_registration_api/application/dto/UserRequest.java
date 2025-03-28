@@ -3,6 +3,7 @@ package com.smartjob.user_registration_api.application.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,6 +30,10 @@ public class UserRequest {
     @Schema(description = "Contraseña (mínimo 8 caracteres, 1 mayúscula, 1 número)",
             example = "Password123", required = true)
     @NotBlank(message = "La contraseña es obligatoria")
+    @Pattern(
+            regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$",
+            message = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número"
+    )
     private String password;
 
     @Schema(description = "Lista de teléfonos asociados al usuario")

@@ -1,4 +1,4 @@
-package com.smartjob.user_registration_api.domain.service;
+package com.smartjob.user_registration_api.domain.services;
 
 import com.smartjob.user_registration_api.domain.exceptions.UserAlreadyExistsException;
 import com.smartjob.user_registration_api.domain.model.User;

@@ -7,7 +7,7 @@ import com.smartjob.user_registration_api.application.mappers.UserResponseMapper
 import com.smartjob.user_registration_api.domain.exceptions.UserAlreadyExistsException;
 import com.smartjob.user_registration_api.domain.model.User;
 import com.smartjob.user_registration_api.domain.ports.UserServicePort;
-import com.smartjob.user_registration_api.domain.service.UserService;
+import com.smartjob.user_registration_api.domain.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,6 +24,12 @@ public class UserServiceImpl implements UserService {
     private final UserRequestMapper userRequestMapper;
     private final UserResponseMapper userResponseMapper;
 
+    /**
+     * Crea un nuevo usuario en el sistema.
+     * @param userRequest contiene la información del usuario a crear
+     * @return UserResponse contiene la información del usuario creado
+     * @throws UserAlreadyExistsException si el correo electrónico ya está registrado
+     */
     @Override
     public UserResponse createUser(UserRequest userRequest) {
         if (userServicePort.existsByEmail(userRequest.getEmail())) {

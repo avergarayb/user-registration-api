@@ -11,6 +11,11 @@ import java.util.stream.Collectors;
 @Component
 public class UserRequestMapper {
 
+    /**
+     * Mapea un objeto UserRequest a un objeto User.
+     * @param request
+     * @return User objeto de dominio mapeado a partir de UserRequest
+     */
     public User toDomain(UserRequest request) {
         if (request == null) {
             return null;
