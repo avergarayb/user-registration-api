@@ -10,12 +10,10 @@ API RESTful para registro de usuarios desarrollada en **Spring Boot 3**, **Java 
 ✔ **Tests unitarios** con JUnit 5 y Mockito.
 
 ## Diagramas
-
-Acceder:
-  Diagrama de la solución
+  Diagrama de la solución:
 - https://www.mermaidchart.com/raw/ecb31561-cde8-46ca-bb15-5e4e160e83fb?theme=light&version=v0.1&format=svg
 
-  Diagrama de componentes
+  Diagrama de componentes:
 - https://www.mermaidchart.com/raw/391cc297-723e-4e47-a600-54ce6ae83130?theme=light&version=v0.1&format=svg
 
 ## Requisitos
@@ -23,6 +21,30 @@ Acceder:
 - Java 17
 - Maven
 - H2
+
+## Script base de datos
+- Al iniciar la aplicación se genera la estructura de la base de datos.
+
+		`CREATE TABLE users (
+		    id UUID PRIMARY KEY,
+		    name VARCHAR(255) NOT NULL,
+		    email VARCHAR(255) NOT NULL UNIQUE,
+		    password VARCHAR(255) NOT NULL,
+		    created TIMESTAMP NOT NULL,
+		    modified TIMESTAMP NOT NULL,
+		    last_login TIMESTAMP NOT NULL,
+		    token VARCHAR(255) NOT NULL,
+		    active BOOLEAN NOT NULL
+		);
+		
+		CREATE TABLE phone (
+		    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+		    number VARCHAR(20) NOT NULL,
+		    city_code VARCHAR(10) NOT NULL,
+		    country_code VARCHAR(10) NOT NULL,
+		    user_id UUID,
+		    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+		);`
 
 ## Ejecución
 
