@@ -1,12 +1,8 @@
 package com.smartjob.user_registration_api.application.mappers;
 
 import com.smartjob.user_registration_api.application.dto.UserResponse;
-import com.smartjob.user_registration_api.domain.model.Phone;
 import com.smartjob.user_registration_api.domain.model.User;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class UserResponseMapper {
@@ -25,7 +21,6 @@ public class UserResponseMapper {
         response.setId(user.getId());
         response.setName(user.getName());
         response.setEmail(user.getEmail());
-        response.setPhones(mapPhonesToResponses(user.getPhones()));
         response.setCreated(user.getCreated());
         response.setModified(user.getModified());
         response.setLastLogin(user.getLastLogin());
@@ -35,21 +30,4 @@ public class UserResponseMapper {
         return response;
     }
 
-    private List<UserResponse.PhoneResponse> mapPhonesToResponses(List<Phone> phones) {
-        if (phones == null) {
-            return null;
-        }
-
-        return phones.stream()
-                .map(this::mapPhoneToResponse)
-                .collect(Collectors.toList());
-    }
-
-    private UserResponse.PhoneResponse mapPhoneToResponse(Phone phone) {
-        UserResponse.PhoneResponse response = new UserResponse.PhoneResponse();
-        response.setNumber(phone.getNumber());
-        response.setCityCode(phone.getCityCode());
-        response.setCountryCode(phone.getCountryCode());
-        return response;
-    }
 }

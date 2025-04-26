@@ -23,8 +23,6 @@ public class UserResponse {
     private String name;
     @Schema(description = "Correo electrónico", example = "juan@example.com")
     private String email;
-    @Schema(description = "Lista de teléfonos asociados al usuario")
-    private List<PhoneResponse> phones;
     @Schema(description = "Fecha de creación del usuario")
     private LocalDateTime created;
     @Schema(description = "Fecha de la última actualización de usuario")
@@ -36,16 +34,4 @@ public class UserResponse {
     @Schema(description = "Estado del usuario (activo/inactivo)")
     private boolean active;
 
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class PhoneResponse {
-        @Schema(description = "Número de celular del usuario", example = "123456789")
-        private String number;
-        @Schema(description = "Código de ciudad", example = "11")
-        private String cityCode;
-        @Schema(description = "Código de país", example = "57")
-        private String countryCode;
-    }
 }
