@@ -47,8 +47,6 @@ public class UserResponseMapperTest {
 
         assertNotNull(response);
         assertEquals(userId, response.getId());
-        assertEquals("Test User", response.getName());
-        assertEquals("test@example.com", response.getEmail());
         assertEquals(now, response.getCreated());
         assertEquals("testToken", response.getToken());
         assertTrue(response.isActive());

@@ -3,7 +3,7 @@ package com.smartjob.user_registration_api.domain.exceptions;
 public class UserAlreadyExistsException extends RuntimeException {
 
     public UserAlreadyExistsException() {
-        super("El correo ya está registrado");
+        super("El correo ya se encuentra registrado");
     }
 
     public UserAlreadyExistsException(String message) {

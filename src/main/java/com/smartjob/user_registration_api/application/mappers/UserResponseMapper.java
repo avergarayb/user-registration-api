@@ -19,8 +19,6 @@ public class UserResponseMapper {
 
         UserResponse response = new UserResponse();
         response.setId(user.getId());
-        response.setName(user.getName());
-        response.setEmail(user.getEmail());
         response.setCreated(user.getCreated());
         response.setModified(user.getModified());
         response.setLastLogin(user.getLastLogin());

@@ -15,8 +15,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -60,10 +59,10 @@ public class UserControllerTest {
                 .thenThrow(new UserAlreadyExistsException());
 
         // Act
-        ResponseEntity<?> result = userController.registerUser(request);
+        assertThrows(UserAlreadyExistsException.class, () -> {
+            userController.registerUser(request);
+        });
 
-        // Assert
-        assertEquals(HttpStatus.CONFLICT, result.getStatusCode());
         verify(userService).createUser(request);
     }
 }

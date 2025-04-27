@@ -16,8 +16,6 @@ public class UserResponseTest {
 
         UserResponse response = UserResponse.builder()
                 .id(userId)
-                .name("María García")
-                .email("maria@example.com")
                 .created(now)
                 .modified(now)
                 .lastLogin(now)
@@ -26,8 +24,6 @@ public class UserResponseTest {
                 .build();
 
         assertEquals(userId, response.getId());
-        assertEquals("María García", response.getName());
-        assertEquals("maria@example.com", response.getEmail());
         assertEquals(now, response.getCreated());
         assertEquals("token123", response.getToken());
         assertTrue(response.isActive());

@@ -1,5 +1,6 @@
 package com.smartjob.user_registration_api.application.dto;
 
+import com.smartjob.user_registration_api.application.utils.ValidationPatterns;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -24,14 +25,17 @@ public class UserRequest {
 
     @Schema(description = "Correo electrónico", example = "juan@example.com", required = true)
     @NotBlank(message = "El correo es obligatorio")
-    @Email(message = "El correo debe tener un formato válido")
+    @Pattern(
+            regexp = ValidationPatterns.EMAIL_REGEX,
+            message = "El correo debe tener un formato válido"
+    )
     private String email;
 
     @Schema(description = "Contraseña (mínimo 8 caracteres, 1 mayúscula, 1 número)",
             example = "Password123", required = true)
     @NotBlank(message = "La contraseña es obligatoria")
     @Pattern(
-            regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$",
+            regexp = ValidationPatterns.PASSWORD_REGEX,
             message = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número"
     )
     private String password;

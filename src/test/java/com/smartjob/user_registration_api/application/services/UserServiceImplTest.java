@@ -61,8 +61,6 @@ public class UserServiceImplTest {
 
         UserResponse expectedResponse = new UserResponse();
         expectedResponse.setId(savedUser.getId());
-        expectedResponse.setName("Test User");
-        expectedResponse.setEmail("test@example.com");
         expectedResponse.setToken("generatedToken");
         expectedResponse.setActive(true);
 
@@ -78,8 +76,6 @@ public class UserServiceImplTest {
         // Assert
         assertNotNull(result);
         assertEquals(savedUser.getId(), result.getId());
-        assertEquals("Test User", result.getName());
-        assertEquals("test@example.com", result.getEmail());
         assertEquals("generatedToken", result.getToken());
         assertTrue(result.isActive());
 

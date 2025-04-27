@@ -1,9 +1,7 @@
 package com.smartjob.user_registration_api.infrastructure.controllers;
 
-import com.smartjob.user_registration_api.application.dto.ErrorResponse;
 import com.smartjob.user_registration_api.application.dto.UserRequest;
 import com.smartjob.user_registration_api.application.dto.UserResponse;
-import com.smartjob.user_registration_api.domain.exceptions.UserAlreadyExistsException;
 import com.smartjob.user_registration_api.domain.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -40,12 +38,7 @@ public class UserController {
     })
     @PostMapping
     public ResponseEntity<?> registerUser(@Valid @RequestBody UserRequest request) {
-        try {
-            UserResponse response = userService.createUser(request);
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        } catch (UserAlreadyExistsException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(new ErrorResponse(e.getMessage()));
-        }
+        UserResponse response = userService.createUser(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }
